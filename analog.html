@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .con {
+            margin: auto;
+            height: 500px;
+            width: 500px;
+            /* background-color: red; */
+            background: url(clock.png) no-repeat;
+            background-size: 100%;
+            position: relative;
+        }
+
+        #min{
+            position: absolute;
+            top: 52px;
+            left: 49.5%;
+            height: 200px;
+            width: 6px;
+            background-color: black;
+            transform-origin: bottom;
+            /* display: none; */
+        }
+
+        .arrow {
+            font-size: 50px;
+            font-weight: 900;
+            position: absolute;
+            top: -14px;
+            left: -12px;
+        }
+
+        #hour {
+            transform-origin: bottom;
+            position: absolute;
+            top: 100px;
+            left: 49.4%;
+            height: 150px;
+            width: 6px;
+            background-color: black;
+            /* display: none; */
+        }
+
+        #sec {
+            transform-origin: bottom;
+            position: absolute;
+            top: 52px;
+            left: 49.5%;
+            height: 200px;
+            width: 3px;
+            background-color: black;
+            /* display: none; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="con">
+        <div id="hour"><span class="arrow">^</span></div>
+        <div id="min"><span class="arrow">^</span></div>
+        <div id="sec"><span class="arrow">^</span></div>
+    </div>
+    <script>
+        setInterval(() => {
+            let tt = new Date();
+            let hh = tt.getHours();
+            let mm = tt.getMinutes();
+            let ss = tt.getSeconds();
+            let hhrotation = 30 * hh + mm / 2;
+            let mmrotation = 6 * mm;
+            let ssrotation = 6 * ss;
+            hour.style.transform = `rotate(${hhrotation}deg)`;
+            min.style.transform = `rotate(${mmrotation}deg)`;
+            sec.style.transform = `rotate(${ssrotation}deg)`;
+
+
+
+        }, 1000);
+    </script>
+</body>
+
+</html>
